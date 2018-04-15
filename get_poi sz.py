@@ -26,293 +26,133 @@ try:
 except:
         pass
 if pagesz:
-        textsz=pagesz.read()
-        if "警告!由于你恶意访问,您的IP已被记录!" in textsz:
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"
-                print "banned!!!!!!!!"                
+        cityPage=pagesz.read()
+        if "警告!由于你恶意访问,您的IP已被记录!" in cityPage:
+                for n in range(0,10):
+                        print "banned!!!!!!!!"               
                 sys.exit(9)
         for n in range(0,49):
-                if " <li class=\"list-group-item\"><a href=" in textsz and "</a><span" in textsz:
-                        textsz=textsz[textsz.index("/poi/district/")+14:]
-                        textsz_1=textsz[0:textsz.index("1.html")-1]
+                if " <li class=\"list-group-item\"><a href=" in cityPage and "</a><span" in cityPage:
+                        cityPage=cityPage[cityPage.index("/poi/district/")+14:]
+                        cityPageId=cityPage[0:cityPage.index("1.html")-1]
                         print "District ID:"
-                        print textsz_1
-                        urlszqu="http://www.poi86.com/poi/district/"+textsz_1+"/1.html"
+                        print cityPageId
+                        districtUrl="http://www.poi86.com/poi/district/"+cityPageId+"/1.html"
                         print "District WebLink:"
-                        print urlszqu
+                        print districtUrl
                         try:
-                                pageszqysy=urllib2.urlopen(urlszqu)
-                                if pageszqysy:
-                                        textszqysy=pageszqysy.read()
-                                        if "警告!由于你恶意访问,您的IP已被记录!" in textszqysy:
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                print "banned!!!!!!!!"
-                                                
+                                districtPage=urllib2.urlopen(districtUrl)
+                                if districtPage:
+                                        cityPageInfo=districtPage.read()
+                                        if "警告!由于你恶意访问,您的IP已被记录!" in cityPageInfo:
+                                                for n in range(0,10):
+                                                        print "banned!!!!!!!!"
                                                 sys.exit(9)
-                                        if "<a href=\"javascript:;\">1" in textszqysy:
-                                                textszqunum=textszqysy[textszqysy.index("<a href=\"javascript:;\">1"):]
-                                                textszqunum_1=textszqunum[textszqunum.index(">1/")+3:textszqunum.index("</a></li></ul>")]
+                                        if "<a href=\"javascript:;\">1" in cityPageInfo:
+                                                districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
+                                                districtPageNumString=districtPageNumInfo[districtPageNumInfo.index(">1/")+3:districtPageNumInfo.index("</a></li></ul>")]
                                                 print "District Pages:"
-                                                print textszqunum_1
+                                                print districtPageNumString
                                                 #  http://www.poi86.com/poi/district/1332/1.html
-                                                for i in range(1,int(textszqunum_1)):
-                                                        url1="http://www.poi86.com/poi/district/"+textsz_1+"/"+str(i)+".html"
-                                                        if url1 in poidatas :
+                                                for i in range(1,int(districtPageNumString)):
+                                                        districtPagesUrl="http://www.poi86.com/poi/district/"+cityPageId+"/"+str(i)+".html"
+                                                        if districtPagesUrl in poidatas :
                                                                 print "Exist Page:"
-                                                                print url1
+                                                                print districtPagesUrl
                                                                 print "readed Next--->"
                                                                 continue
                                                         print "District FirstPageWebLink:"                                                        
-                                                        print url1
+                                                        print districtPagesUrl
                                                         try:
-                                                                page1=urllib2.urlopen(url1)
+                                                                districtPagesUrlPage=urllib2.urlopen(districtPagesUrl)
                                                         except Exception,e:
                                                                 print 'openERR:'
-                                                                print url1                                                               
+                                                                print districtPagesUrl                                                               
                                                                 if  "Forbidden" in str(e):
                                                                         print "banned!!!!!!!!"
                                                                         sys.exit(9)
                                                                 print Exception,":",e
-                                                                err_file.write(url1+'\n'+str(e)+"\n")
+                                                                err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
                                                                 err_file.flush()
                                                         pass
-                                                        if page1:
-                                                                text1=page1.read()
-                                                                if "警告!由于你恶意访问,您的IP已被记录!" in text1:
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        print "banned!!!!!!!!"
-                                                                        
+                                                        if districtPagesUrlPage:
+                                                                districtPagesUrlPageText=districtPagesUrlPage.read()
+                                                                if "警告!由于你恶意访问,您的IP已被记录!" in districtPagesUrlPageText:
+                                                                        for n in range(0,10):
+                                                                                print "banned!!!!!!!!"
                                                                         sys.exit(9)
                                                                 for j in range(0,49): 
-                                                                        if "<td><a href=" in text1 and "</a></td>" in text1:  
-                                                                                text1=text1[text1.index("<td><a href=")+1:]
-                                                                                text1_1=text1[text1.index("<td><a href=")+13:]
-                                                                                url2="http://www.poi86.com"+text1_1[:text1_1.index("html")+4]
-                                                                                if url2 in poidatas :
+                                                                        if "<td><a href=" in districtPagesUrlPageText and "</a></td>" in districtPagesUrlPageText:  
+                                                                                districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
+                                                                                if poiPageUrl in poidatas :
                                                                                         print "Exist Page:"
-                                                                                        print url2
+                                                                                        print poiPageUrl
                                                                                         print "readed Next--->"
                                                                                         continue
-                                                                                if "category" in url2:
+                                                                                if "category" in poiPageUrl:
                                                                                         continue     
-                                                                                print pagenum                                                                           
-                                                                                print "POI page:"
-                                                                                print url2
-                                                                                k=j+i*50 -50
+                                                                                print ("No: " , len (poidatas) sep=" ")                                                                          
+                                                                                print ("POI page:", poiPageUrl, sep=" ")
                                                                                 pagenum+=1
-				                                                print k
+				                                                print pagenum
                                                                                 
 				                                                try:
-                                                                                        page2=urllib2.urlopen(url2)
+                                                                                        poiPageInfo=urllib2.urlopen(poiPageUrl)
                                                                                 except Exception,e:
                                                                                         print 'openERR:'
-                                                                                        print url2
+                                                                                        print poiPageUrl
                                                                                         print Exception,":",e
                                                                                         if  "Forbidden" in str(e):
-                                                                                                print "banned!!!!!!!!"
+                                                                                                for n in range(0,10):
+                                                                                                        print "banned!!!!!!!!"                                                                                       
                                                                                                 sys.exit(9)
-                                                                                        err_file.write(url2+'\n'+str(e)+"\n")
+                                                                                        err_file.write(poiPageUrl+'\n'+str(e)+"\n")
                                                                                         err_file.flush()
                                                                                         pass
                                                                                         continue
                                                                                 try:
-                                                                                        if page2:
-                                                                                                text2=page2.read()
-                                                                                                if "警告!由于你恶意访问,您的IP已被记录!" in text2:
-                                                                                                        print "banned!!!!!!!!"
-                                                                                                if "火星坐标" in text2 and "百度坐标" in text2:
-                                                                                                        text2=text2[text2.index("火星坐标"):text2.index("百度坐标")]
-                                                                                                if "</span>" in text2 and "</li>" in text2:
-                                                                                                        poi=text2[text2.index("</span>")+8:text2.index("</li>")]+"\n"
+                                                                                        if poiPageInfo:
+                                                                                                poiPageDetial=poiPageInfo.read()
+                                                                                                if "警告!由于你恶意访问,您的IP已被记录!" in poiPageDetial:
+                                                                                                        for n in range(0,10):
+                                                                                                                print "banned!!!!!!!!"
+                                                                                                        sys.exit(9)
+                                                                                                if "火星坐标" in poiPageDetial and "百度坐标" in poiPageDetial:
+                                                                                                        poiPageDetial=poiPageDetial[poiPageDetial.index("火星坐标"):poiPageDetial.index("百度坐标")]
+                                                                                                if "</span>" in poiPageDetial and "</li>" in poiPageDetial:
+                                                                                                        poi=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")]+"\n"
                                                                                                         poi_file.write(poi)
-                                                                                                        print poi
                                                                                                         poi_file.flush()
-                                                                                                        poidatas[url2]="readed"
-                                                                                                        read_file.write(url2+"\n")
+                                                                                                        print poi
+                                                                                                        poidatas[poiPageUrl]=poi
+                                                                                                        read_file.write(poiPageUrl+"\n")
                                                                                                         read_file.flush()
                                                                                 except Exception,e:
                                                                                         print 'saveERR:'
                                                                                         print e.message
-                                                                                        err_file.write(url2+'\n'+str(e)+"\n")
+                                                                                        err_file.write(poiPageUrl+'\n'+str(e)+"\n")
                                                                                         err_file.flush()
                                                                                         if  "Forbidden" in str(e):
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                print "banned!!!!!!!!"
-                                                                                                
+                                                                                                for n in range(0,10):
+                                                                                                        print "banned!!!!!!!!"
                                                                                                 sys.exit(9)
                                                                                         pass	
                                                                                         continue
-                                                        poidatas[url1]="readed"
-                                                        read_file.write(url1+"\n")
+                                                        poidatas[districtPagesUrl]="readed"
+                                                        read_file.write(districtPagesUrl+"\n")
                                                         read_file.flush()
 			except:
                                 if  "Forbidden" in str(e):
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        print "banned!!!!!!!!"
-                                        err_file.write(urlszqu+'\n'+str(e)+"\n")
+                                        for n in range(0,10):
+                                                print "banned!!!!!!!!"
+                                        err_file.write(districtUrl+'\n'+str(e)+"\n")
                                         err_file.flush()
                                 print str(e)
-                                err_file.write(urlszqu+'\n'+str(e)+"\n")
+                                err_file.write(districtUrl+'\n'+str(e)+"\n")
                                 err_file.flush()
+                                sys.exit(9)
                                 pass			
 poi_file.close()
 err_file.close()
