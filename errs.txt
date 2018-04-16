@@ -192,3 +192,40 @@ http://www.poi86.com/poi/district/2113/1.html
 HTTP Error 403: Forbidden
 http://www.poi86.com/poi/district/2113/1.html
 HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2115/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2115/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/21677699.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/21711883.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/2284/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/16211327.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden

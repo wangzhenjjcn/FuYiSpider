@@ -50,6 +50,9 @@ else:
                                 districtIdString=cityPageDetial[0:cityPageDetial.index("1.html")-1]
                                 print "District ID:"
                                 print districtIdString
+                                intdis=int(districtIdString)
+                                if intdis >2600:
+                                        continue
                                 districtUrl="http://www.poi86.com/poi/district/"+districtIdString+"/1.html"
                                 print "District WebLink:"
                                 print districtUrl
