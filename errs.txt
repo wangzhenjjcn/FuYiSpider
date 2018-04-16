@@ -229,3 +229,13 @@ http://www.poi86.com/poi/district/2284/1.html
 HTTP Error 403: Forbidden
 http://www.poi86.com/poi/district/2284/1.html
 HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2284/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/16586445.html
+[Errno 10054] 
+http://www.poi86.com/poi/16587018.html
+[Errno 10054] 
+http://www.poi86.com/poi/16592482.html
+[Errno 10054] 
