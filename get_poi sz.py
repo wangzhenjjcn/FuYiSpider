@@ -157,7 +157,7 @@ else:
                                                                 poidatas[districtPagesUrl]="readed"
                                                                 read_file.write(districtPagesUrl+"\n")
                                                                 read_file.flush()
-                                except:
+                                except Exception,e::
                                         if  "Forbidden" in str(e):
                                                 for n in range(0,10):
                                                         print "banned!!!!!!!!"
