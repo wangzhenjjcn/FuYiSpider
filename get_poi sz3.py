@@ -1,19 +1,19 @@
 #coding=utf-8
 import urllib2,sys
-poi_file=open("sz.txt3","a")
-err_file=open("errs.txt3","a")
-read_file=open("szreaded.txt3","a")
+poi_file=open("sz3.txt","a")
+err_file=open("errs3.txt","a")
+read_file=open("szreaded3.txt","a")
 errpoidatas={}
 allpoidatas={}
 readpoilinks={}
 poidatas = {"http://www.poi86.com/poi/city/224.html":1}
-readed_file = open("szreaded.txt3","r")
+readed_file = open("szreaded3.txt","r")
 for lines in readed_file:
         data = lines.strip("\n")
         poidatas[data]="readed"
 pagenum=0
 hdr = {
-       'user-agent': "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
+       'user-agent': "Mozilla/5.0 (Wi ndows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
        'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
        'Accept-Encoding': 'deflate',
@@ -157,7 +157,7 @@ else:
                                                                 poidatas[districtPagesUrl]="readed"
                                                                 read_file.write(districtPagesUrl+"\n")
                                                                 read_file.flush()
-                                except:
+                                except Exception,e:
                                         if  "Forbidden" in str(e):
                                                 for n in range(0,10):
                                                         print "banned!!!!!!!!"
