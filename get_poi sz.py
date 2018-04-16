@@ -13,11 +13,12 @@ for lines in readed_file:
         poidatas[data]="readed"
 pagenum=0
 hdr = {
+        'Host':"www.poi86.com",
        'user-agent': "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
-       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
        'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
-       'Accept-Encoding': 'deflate',
-       'Accept-Language': 'en-US,en;q=0.8',
+       'Accept-Encoding': 'gzip, deflate, br',
+       'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
        'Connection': 'keep-alive'
        }
  
@@ -87,7 +88,7 @@ else:
                                                                         if  "Forbidden" in str(e):
                                                                                 print "banned!!!!!!!!"
                                                                                 sys.exit(9)
-                                                                        print Exception,":",e
+                                                                        print str(e)
                                                                         err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
                                                                         err_file.flush()
                                                                 pass
@@ -117,7 +118,7 @@ else:
                                                                                         except Exception,e:
                                                                                                 print 'openERR:'
                                                                                                 print poiPageUrl
-                                                                                                print Exception,":",e
+                                                                                                print str(e)
                                                                                                 if  "Forbidden" in str(e):
                                                                                                         for n in range(0,10):
                                                                                                                 print "banned!!!!!!!!"                                                                                       
@@ -157,16 +158,16 @@ else:
                                                                 poidatas[districtPagesUrl]="readed"
                                                                 read_file.write(districtPagesUrl+"\n")
                                                                 read_file.flush()
-                                except Exception,e::
+                                except Exception,e:
                                         if  "Forbidden" in str(e):
                                                 for n in range(0,10):
                                                         print "banned!!!!!!!!"
                                                 err_file.write(districtUrl+'\n'+str(e)+"\n")
                                                 err_file.flush()
+                                                sys.exit(9)
                                         print str(e)
                                         err_file.write(districtUrl+'\n'+str(e)+"\n")
                                         err_file.flush()
-                                        sys.exit(9)
                                         pass			
 poi_file.close()
 err_file.close()

@@ -163,10 +163,10 @@ else:
                                                         print "banned!!!!!!!!"
                                                 err_file.write(districtUrl+'\n'+str(e)+"\n")
                                                 err_file.flush()
+                                                sys.exit(9)
                                         print str(e)
                                         err_file.write(districtUrl+'\n'+str(e)+"\n")
                                         err_file.flush()
-                                        sys.exit(9)
                                         pass			
 poi_file.close()
 err_file.close()
