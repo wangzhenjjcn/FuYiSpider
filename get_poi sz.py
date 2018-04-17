@@ -34,7 +34,7 @@ except Exception,e:
                 err_file.flush()
                 sys.exit(9)
         print str(e)
-        err_file.write(districtUrl+'\n'+str(e)+"\n")
+        err_file.write(urlsz+'\n'+str(e)+"\n")
         err_file.flush()
         pass
                                         
@@ -52,8 +52,6 @@ else:
                                 print "District ID:"
                                 print districtIdString
                                 intdis=int(districtIdString)
-                                if intdis >2600:
-                                        continue
                                 districtUrl="http://www.poi86.com/poi/district/"+districtIdString+"/1.html"
                                 print "District WebLink:"
                                 print districtUrl
@@ -68,7 +66,6 @@ else:
                                                 if "<a href=\"javascript:;\">1" in cityPageInfo:
                                                         districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
                                                         districtPageNumString=districtPageNumInfo[districtPageNumInfo.index(">1/")+3:districtPageNumInfo.index("</a></li></ul>")]
-                                                        print "District Pages:[" + districtPageNumString + "]"
                                                         #  http://www.poi86.com/poi/district/1332/1.html
                                                         for i in range(1,int(districtPageNumString)):
                                                                 districtPagesUrl="http://www.poi86.com/poi/district/"+districtIdString+"/"+str(i)+".html"
