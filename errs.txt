@@ -279,3 +279,267 @@ http://www.poi86.com/poi/16668942.html
 [Errno 10054] 
 http://www.poi86.com/poi/20401424.html
 [Errno 10054] 
+http://www.poi86.com/poi/27590446.html
+[Errno 10060] 
+http://www.poi86.com/poi/27590523.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/27590920.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/27606463.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2284/951.html
+''
+http://www.poi86.com/poi/district/2284/1.html
+name 'districtPagesUrlPage' is not defined
+http://www.poi86.com/poi/16644251.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/2581/1.html
+substring not found
+http://www.poi86.com/poi/district/1332/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1343/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2115/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2284/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/16644994.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1751/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1751/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/27606692.html
+[Errno 10054] 
+http://www.poi86.com/poi/27606951.html
+[Errno 10054] 
+http://www.poi86.com/poi/27606956.html
+[Errno 10054] 
+http://www.poi86.com/poi/27606959.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607228.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607278.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607279.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607288.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607292.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607583.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607631.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607583.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1343/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2113/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2665/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/16285032.html
+[Errno 10054] 
+http://www.poi86.com/poi/16285078.html
+[Errno 10054] 
+http://www.poi86.com/poi/16285089.html
+[Errno 10054] 
+http://www.poi86.com/poi/16285078.html
+[Errno 10054] 
+http://www.poi86.com/poi/16285960.html
+[Errno 10054] 
+http://www.poi86.com/poi/16294427.html
+[Errno 10054] 
+http://www.poi86.com/poi/16297979.html
+[Errno 10054] 
+http://www.poi86.com/poi/16301564.html
+[Errno 10054] 
+http://www.poi86.com/poi/16303893.html
+[Errno 10054] 
+http://www.poi86.com/poi/16312817.html
+[Errno 10054] 
+http://www.poi86.com/poi/16329392.html
+[Errno 10054] 
+http://www.poi86.com/poi/16329695.html
+[Errno 10054] 
+http://www.poi86.com/poi/16340209.html
+[Errno 10054] 
+http://www.poi86.com/poi/16366681.html
+[Errno 10054] 
+http://www.poi86.com/poi/16379639.html
+[Errno 10054] 
+http://www.poi86.com/poi/16379912.html
+[Errno 10054] 
+http://www.poi86.com/poi/16381179.html
+[Errno 10054] 
+http://www.poi86.com/poi/16381434.html
+[Errno 10054] 
+http://www.poi86.com/poi/16382116.html
+[Errno 10054] 
+http://www.poi86.com/poi/16407582.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/district/2665/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/16417585.html
+[Errno 10054] 
+http://www.poi86.com/poi/16417656.html
+[Errno 10054] 
+http://www.poi86.com/poi/16417696.html
+[Errno 10054] 
+http://www.poi86.com/poi/16417866.html
+[Errno 10054] 
+http://www.poi86.com/poi/16419224.html
+[Errno 10054] 
+http://www.poi86.com/poi/16419483.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2665/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2665/552.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2665/1.html
+name 'districtPagesUrlPage' is not defined
+http://www.poi86.com/poi/16419785.html
+[Errno 10054] 
+http://www.poi86.com/poi/16419958.html
+[Errno 10054] 
+http://www.poi86.com/poi/16420018.html
+[Errno 10054] 
+http://www.poi86.com/poi/16420019.html
+[Errno 10054] 
+http://www.poi86.com/poi/16420067.html
+[Errno 10054] 
+http://www.poi86.com/poi/16420461.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2665/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/city/224.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/15878429.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/16153675.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/16197283.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/district/2792/1.html
+HTTP Error 403: Forbidden
+http://www.poi86.com/poi/16345117.html
+[Errno 10054] 
+http://www.poi86.com/poi/16345138.html
+[Errno 10054] 
+http://www.poi86.com/poi/16345363.html
+[Errno 10054] 
+http://www.poi86.com/poi/16345569.html
+[Errno 10054] 
+http://www.poi86.com/poi/16345897.html
+[Errno 10054] 
+http://www.poi86.com/poi/16345920.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2792/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/16347149.html
+[Errno 10054] 
+http://www.poi86.com/poi/16351419.html
+[Errno 10054] 
+http://www.poi86.com/poi/16353937.html
+[Errno 10054] 
+http://www.poi86.com/poi/16357668.html
+[Errno 10054] 
+http://www.poi86.com/poi/16365532.html
+[Errno 10054] 
+http://www.poi86.com/poi/16365888.html
+[Errno 10054] 
+http://www.poi86.com/poi/16368659.html
+[Errno 10054] 
+http://www.poi86.com/poi/16369094.html
+[Errno 10054] 
+http://www.poi86.com/poi/16392696.html
+[Errno 10054] 
+http://www.poi86.com/poi/16414761.html
+[Errno 10054] 
+http://www.poi86.com/poi/16469590.html
+[Errno 10054] 
+http://www.poi86.com/poi/16575910.html
+[Errno 10054] 
+http://www.poi86.com/poi/16719887.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/district/2792/1.html
+''
+http://www.poi86.com/poi/19605650.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605651.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605658.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605662.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605677.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605691.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605716.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605723.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605725.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605726.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605734.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605737.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605755.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605756.html
+[Errno 10054] 
+http://www.poi86.com/poi/19605760.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1934/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2113/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2115/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607763.html
+[Errno 10054] 
+http://www.poi86.com/poi/27607990.html
+[Errno 10054] 
