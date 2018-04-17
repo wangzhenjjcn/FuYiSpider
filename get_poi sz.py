@@ -1,12 +1,12 @@
 #coding=utf-8
-import urllib2,sys
+import urllib2,sys,time,datetime
 poi_file=open("sz.txt","a")
 err_file=open("errs.txt","a")
 read_file=open("szreaded.txt","a")
 errpoidatas={}
 allpoidatas={}
 readpoilinks={}
-poidatas = {"http://www.poi86.com/poi/city/224.html":1}
+poidatas = {}
 readed_file = open("szreaded.txt","r")
 for lines in readed_file:
         data = lines.strip("\n")
@@ -48,7 +48,7 @@ else:
                 for n in range(0,49):
                         if " <li class=\"list-group-item\"><a href=" in cityPageDetial and "</a><span" in cityPageDetial:
                                 cityPageDetial=cityPageDetial[cityPageDetial.index("/poi/district/")+14:]
-                                districtIdString=cityPageDetial[0:cityPageDetial.index("1.html")-1]
+                                districtIdString=cityPageDetial[0:cityPageDetial.index(".html")-2]
                                 print "District ID:"
                                 print districtIdString
                                 intdis=int(districtIdString)
@@ -68,8 +68,7 @@ else:
                                                 if "<a href=\"javascript:;\">1" in cityPageInfo:
                                                         districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
                                                         districtPageNumString=districtPageNumInfo[districtPageNumInfo.index(">1/")+3:districtPageNumInfo.index("</a></li></ul>")]
-                                                        print "District Pages:"
-                                                        print districtPageNumString
+                                                        print "District Pages:[" + districtPageNumString + "]"
                                                         #  http://www.poi86.com/poi/district/1332/1.html
                                                         for i in range(1,int(districtPageNumString)):
                                                                 districtPagesUrl="http://www.poi86.com/poi/district/"+districtIdString+"/"+str(i)+".html"
@@ -110,11 +109,13 @@ else:
                                                                                                 continue
                                                                                         if "category" in poiPageUrl:
                                                                                                 continue     
-                                                                                        print "No: " , len (poidatas)                                                                        
-                                                                                        print "POI page:", poiPageUrl
+                                                                                        print "No: " , len (poidatas)
                                                                                         pagenum+=1
+                                                                                        starttime = datetime.datetime.now()
                                                                                         try:
+                                                                                                print "POI page:", poiPageUrl
                                                                                                 poiPageInfo=urllib2.urlopen(poiPageUrl)
+                                                                                                print "readed sucess"
                                                                                         except Exception,e:
                                                                                                 print 'openERR:'
                                                                                                 print poiPageUrl
@@ -127,9 +128,15 @@ else:
                                                                                                 err_file.flush()
                                                                                                 pass
                                                                                                 continue
+                                                                                        endtime = datetime.datetime.now()
+                                                                                        print   (endtime - starttime)
+                                                                                        starttime = datetime.datetime.now()
                                                                                         try:
+                                                                                                
                                                                                                 if poiPageInfo:
                                                                                                         poiPageDetial=poiPageInfo.read()
+                                                                                                        endtime2 = datetime.datetime.now()
+                                                                                                        print  (endtime2 - starttime)
                                                                                                         if "警告!由于你恶意访问,您的IP已被记录!" in poiPageDetial:
                                                                                                                 for n in range(0,10):
                                                                                                                         print "banned!!!!!!!!"
@@ -138,12 +145,15 @@ else:
                                                                                                                 poiPageDetial=poiPageDetial[poiPageDetial.index("火星坐标"):poiPageDetial.index("百度坐标")]
                                                                                                         if "</span>" in poiPageDetial and "</li>" in poiPageDetial:
                                                                                                                 poi=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")]+"\n"
+                                                                                                                print "write foi file"
                                                                                                                 poi_file.write(poi)
                                                                                                                 poi_file.flush()
                                                                                                                 print "POI:   ", poi
                                                                                                                 poidatas[poiPageUrl]=poi
                                                                                                                 read_file.write(poiPageUrl+"\n")
                                                                                                                 read_file.flush()
+                                                                                                                print "wrote read File"
+                                                                                                      
                                                                                         except Exception,e:
                                                                                                 print 'saveERR:'
                                                                                                 print e.message
@@ -155,8 +165,10 @@ else:
                                                                                                         sys.exit(9)
                                                                                                 pass	
                                                                                                 continue
+                                                                                        endtime = datetime.datetime.now()
+                                                                                        print  (endtime - starttime)
                                                                 poidatas[districtPagesUrl]="readed"
-                                                                read_file.write(districtPagesUrl+"\n")
+                                                                read_file.write(districtPagesUrl+"\n") 
                                                                 read_file.flush()
                                 except Exception,e:
                                         if  "Forbidden" in str(e):

@@ -239,3 +239,43 @@ http://www.poi86.com/poi/16587018.html
 [Errno 10054] 
 http://www.poi86.com/poi/16592482.html
 [Errno 10054] 
+http://www.poi86.com/poi/district/1332/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/1343/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/1751/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/1332/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/1343/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 0] Error
+http://www.poi86.com/poi/16603893.html
+[Errno 10054] 
+http://www.poi86.com/poi/16604319.html
+[Errno 10054] 
+http://www.poi86.com/poi/16617554.html
+[Errno 10054] 
+http://www.poi86.com/poi/16618309.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2284/1.html
+cannot concatenate 'str' and 'int' objects
+http://www.poi86.com/poi/16622900.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/16628177.html
+[Errno 10054] 
+http://www.poi86.com/poi/16629448.html
+[Errno 10054] 
+http://www.poi86.com/poi/16629664.html
+[Errno 10054] 
+http://www.poi86.com/poi/16653328.html
+[Errno 10054] 
+http://www.poi86.com/poi/16657323.html
+[Errno 10054] 
+http://www.poi86.com/poi/16668942.html
+[Errno 10054] 
+http://www.poi86.com/poi/20401424.html
+[Errno 10054] 

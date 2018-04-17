@@ -6,7 +6,7 @@ read_file=open("szreaded3.txt","a")
 errpoidatas={}
 allpoidatas={}
 readpoilinks={}
-poidatas = {"http://www.poi86.com/poi/city/224.html":1}
+poidatas = {}
 readed_file = open("szreaded3.txt","r")
 for lines in readed_file:
         data = lines.strip("\n")

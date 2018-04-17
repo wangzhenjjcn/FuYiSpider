@@ -24,3 +24,37 @@ http://www.poi86.com/poi/16285078.html
 [Errno 10054] 
 http://www.poi86.com/poi/16285089.html
 [Errno 10054] 
+http://www.poi86.com/poi/16285078.html
+[Errno 10054] 
+http://www.poi86.com/poi/16285960.html
+[Errno 10054] 
+http://www.poi86.com/poi/16294427.html
+[Errno 10054] 
+http://www.poi86.com/poi/16297979.html
+[Errno 10054] 
+http://www.poi86.com/poi/16301564.html
+[Errno 10054] 
+http://www.poi86.com/poi/16303893.html
+[Errno 10054] 
+http://www.poi86.com/poi/16312817.html
+[Errno 10054] 
+http://www.poi86.com/poi/16329392.html
+[Errno 10054] 
+http://www.poi86.com/poi/16329695.html
+[Errno 10054] 
+http://www.poi86.com/poi/16340209.html
+[Errno 10054] 
+http://www.poi86.com/poi/16366681.html
+[Errno 10054] 
+http://www.poi86.com/poi/16379639.html
+[Errno 10054] 
+http://www.poi86.com/poi/16379912.html
+[Errno 10054] 
+http://www.poi86.com/poi/16381179.html
+[Errno 10054] 
+http://www.poi86.com/poi/16381434.html
+[Errno 10054] 
+http://www.poi86.com/poi/16382116.html
+[Errno 10054] 
+http://www.poi86.com/poi/16407582.html
+<urlopen error [Errno 10060] >
