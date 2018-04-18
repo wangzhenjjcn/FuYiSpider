@@ -118,21 +118,21 @@ else:
                                                                                                 print "readed Next--->"
                                                                                                 continue
                                                                                         if "category" in poiPageUrl:
-                                                                                                print "-----errklink:" +  poiPageUrl
+                                                                                                print "   --errklink:" +  poiPageUrl
                                                                                                 districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
                                                                                                 poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
                                                                                                 poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]                                                                                                
                                                                                                 if "category" in poiPageUrl:
-                                                                                                        print "----------errklink:" +  poiPageUrl
+                                                                                                        print "     -----errklink:" +  poiPageUrl
                                                                                                         districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
                                                                                                         poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
                                                                                                         poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
                                                                                                         if "category" in poiPageUrl:
-                                                                                                                print "---------------errklink:" +  poiPageUrl
+                                                                                                                print "          -----errklink:" +  poiPageUrl
                                                                                                                 districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
                                                                                                                 poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
                                                                                                                 poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
-                                                                                                print "-----right:" + poiPageUrl         
+                                                                                                print "   --right:" + poiPageUrl         
                                                                                         print "No: " , len (poidatas)
                                                                                         pagenum+=1
                                                                                         if poiPageUrl  in poidatas:
@@ -156,6 +156,8 @@ else:
                                                                                                 err_file.flush()
                                                                                                 pass
                                                                                                 continue
+                                                                                else:
+                                                                                        print "     =====district:" +districtIdString+"---page:" + i +"---num:" + j
                                                                 poidatas[districtPagesUrl]="readed"
                                                                 read_file.write(districtPagesUrl+"\n") 
                                                                 read_file.flush()
