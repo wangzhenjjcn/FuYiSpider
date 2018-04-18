@@ -39,7 +39,7 @@ except Exception,e:
                 err_file.flush()
                 os.system(r"rasphone -h 051213869974")  
                 os.system(r"rasdial 051213869974 051213869974 085564") 
-                os.system("run sz.bat")
+                os.system("run_sz.bat")
                 sys.exit(9)
         print str(e)
         err_file.write(urlsz+'\n'+str(e)+"\n")
@@ -54,7 +54,7 @@ else:
                                 print "banned!!!!!!!!" 
                         os.system(r"rasphone -h 051213869974")  
                         os.system(r"rasdial 051213869974 051213869974 085564") 
-                        os.system("run sz.bat")              
+                        os.system("run_sz.bat")              
                         sys.exit(9)
                 for n in range(0,49):
                         if " <li class=\"list-group-item\"><a href=" in cityPageDetial and "</a><span" in cityPageDetial:
@@ -76,7 +76,7 @@ else:
                                                                 print "banned!!!!!!!!"
                                                         os.system(r"rasphone -h 051213869974")  
                                                         os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                        os.system("run sz.bat")
+                                                        os.system("run_sz.bat")
                                                         sys.exit(9)
                                                 if "<a href=\"javascript:;\">1" in cityPageInfo:
                                                         districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
@@ -100,7 +100,7 @@ else:
                                                                                 print "banned!!!!!!!!"
                                                                                 os.system(r"rasphone -h 051213869974")  
                                                                                 os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                os.system("run sz.bat")
+                                                                                os.system("run_sz.bat")
                                                                                 sys.exit(9)
                                                                         print str(e)
                                                                         err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
@@ -115,7 +115,7 @@ else:
                                                                                         print "banned!!!!!!!!"
                                                                                 os.system(r"rasphone -h 051213869974")  
                                                                                 os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                os.system("run sz.bat")
+                                                                                os.system("run_sz.bat")
                                                                                 sys.exit(9)
                                                                         for j in range(0,49): 
                                                                                 if "<td><a href=" in districtPagesUrlPageText and "</a></td>" in districtPagesUrlPageText:  
@@ -128,7 +128,21 @@ else:
                                                                                                 print "readed Next--->"
                                                                                                 continue
                                                                                         if "category" in poiPageUrl:
-                                                                                                continue     
+                                                                                                print "-----errklink:" +  poiPageUrl
+                                                                                                districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                                poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                                poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]                                                                                                
+                                                                                                if "category" in poiPageUrl:
+                                                                                                        print "----------errklink:" +  poiPageUrl
+                                                                                                        districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                                        poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                                        poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
+                                                                                                        if "category" in poiPageUrl:
+                                                                                                                print "---------------errklink:" +  poiPageUrl
+                                                                                                                districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                                                poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                                                poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
+                                                                                                print "-----right:" + poiPageUrl    
                                                                                         print "No: " , len (poidatas)
                                                                                         pagenum+=1
                                                                                          
@@ -145,7 +159,7 @@ else:
                                                                                                                 print "banned!!!!!!!!"                                                                                       
                                                                                                         os.system(r"rasphone -h 051213869974")  
                                                                                                         os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                                        os.system("run sz.bat")
+                                                                                                        os.system("run_sz.bat")
                                                                                                         sys.exit(9)
                                                                                                 err_file.write(poiPageUrl+'\n'+str(e)+"\n")
                                                                                                 err_file.flush()
@@ -184,7 +198,7 @@ else:
                                                                                                                 print "banned!!!!!!!!"
                                                                                                         os.system(r"rasphone -h 051213869974")  
                                                                                                         os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                                        os.system("run sz.bat")
+                                                                                                        os.system("run_sz.bat")
                                                                                                         sys.exit(9)
                                                                                                 pass	
                                                                                                 continue
@@ -198,7 +212,7 @@ else:
                                                         print "banned!!!!!!!!"
                                                 os.system(r"rasphone -h 051213869974")  
                                                 os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                os.system("run sz.bat")
+                                                os.system("run_sz.bat")
                                                 err_file.write(districtUrl+'\n'+str(e)+"\n")
                                                 err_file.flush()
                                                 sys.exit(9)

@@ -1,5 +1,5 @@
 #coding=utf-8
-import urllib2,sys,time,datetime
+import urllib2,sys,time,datetime,os
 poiid_file=open("poiid.txt","a")
 err_file=open("iderrs.txt","a")
 read_file=open("szidreaded.txt","a")
@@ -32,8 +32,8 @@ except Exception,e:
                         print "banned!!!!!!!!"
                 err_file.write(urlsz+'\n'+str(e)+"\n")
                 err_file.flush()
-                os.system("run szidReader.bat")
-                sys.exit(9)
+                os.system("run_szidReader.bat")
+        sys.exit(9)
         print str(e)
         err_file.write(urlsz+'\n'+str(e)+"\n")
         err_file.flush()
@@ -45,7 +45,7 @@ else:
                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageDetial:
                         for n in range(0,10):
                                 print "banned!!!!!!!!"  
-                        os.system("run szidReader.bat")             
+                        os.system("run_szidReader.bat")             
                         sys.exit(9)
                 for n in range(0,49):
                         if " <li class=\"list-group-item\"><a href=" in cityPageDetial and "</a><span" in cityPageDetial:
@@ -64,7 +64,7 @@ else:
                                                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageInfo:
                                                         for n in range(0,10):
                                                                 print "banned!!!!!!!!"
-                                                        os.system("run szidReader.bat")
+                                                        os.system("run_szidReader.bat")
                                                         sys.exit(9)
                                                 if "<a href=\"javascript:;\">1" in cityPageInfo:
                                                         districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
@@ -91,8 +91,8 @@ else:
                                                                         if  "Forbidden" in str(e):
                                                                                 for n in range(0,10):
                                                                                         print "banned!!!!!!!!"
-                                                                                os.system("run szidReader.bat")
-                                                                                sys.exit(9)
+                                                                        os.system("run_szidReader.bat")
+                                                                        sys.exit(9)
                                                                         print str(e)
                                                                         err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
                                                                         err_file.flush()
@@ -104,8 +104,9 @@ else:
                                                                         if "警告!由于你恶意访问,您的IP已被记录!" in districtPagesUrlPageText:
                                                                                 for n in range(0,10):
                                                                                         print "banned!!!!!!!!"
-                                                                                os.system("run szidReader.bat")
+                                                                                os.system("run_szidReader.bat")
                                                                                 sys.exit(9)
+                                                                        
                                                                         for j in range(0,49): 
                                                                                 if "<td><a href=" in districtPagesUrlPageText and "</a></td>" in districtPagesUrlPageText:  
                                                                                         districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
@@ -117,7 +118,21 @@ else:
                                                                                                 print "readed Next--->"
                                                                                                 continue
                                                                                         if "category" in poiPageUrl:
-                                                                                                continue     
+                                                                                                print "-----errklink:" +  poiPageUrl
+                                                                                                districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                                poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                                poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]                                                                                                
+                                                                                                if "category" in poiPageUrl:
+                                                                                                        print "----------errklink:" +  poiPageUrl
+                                                                                                        districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                                        poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                                        poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
+                                                                                                        if "category" in poiPageUrl:
+                                                                                                                print "---------------errklink:" +  poiPageUrl
+                                                                                                                districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                                                poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
+                                                                                                                poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
+                                                                                                print "-----right:" + poiPageUrl         
                                                                                         print "No: " , len (poidatas)
                                                                                         pagenum+=1
                                                                                         if poiPageUrl  in poidatas:
@@ -135,7 +150,7 @@ else:
                                                                                                 if  "Forbidden" in str(e):
                                                                                                         for n in range(0,10):
                                                                                                                 print "banned!!!!!!!!"                                                                                       
-                                                                                                        os.system("run szidReader.bat")
+                                                                                                        os.system("run_szidReader.bat")
                                                                                                         sys.exit(9)
                                                                                                 err_file.write(poiPageUrl+'\n'+str(e)+"\n")
                                                                                                 err_file.flush()
@@ -150,7 +165,7 @@ else:
                                                         print "banned!!!!!!!!"
                                                 err_file.write(districtUrl+'\n'+str(e)+"\n")
                                                 err_file.flush()
-                                                os.system("run szidReader.bat")
+                                                os.system("run_szidReader.bat")
                                                 sys.exit(9)
                                         print str(e)
                                         err_file.write(districtUrl+'\n'+str(e)+"\n")
@@ -159,3 +174,8 @@ else:
 poiid_file.close()
 err_file.close()
 read_file.close()
+
+for n in range(0,100):
+        print "finished!!!!!!!!"
+
+os.system("run_szidReader.bat")
