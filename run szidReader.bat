@@ -1,0 +1,2 @@
+python "getPoiIds.py"
+pause;

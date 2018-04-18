@@ -1,13 +1,13 @@
 #coding=utf-8
-import urllib2,sys,time,datetime,os
-poi_file=open("sz.txt","a")
-err_file=open("errs.txt","a")
-read_file=open("szreaded.txt","a")
+import urllib2,sys,time,datetime
+poiid_file=open("poiid.txt","a")
+err_file=open("iderrs.txt","a")
+read_file=open("szidreaded.txt","a")
 errpoidatas={}
 allpoidatas={}
 readpoilinks={}
 poidatas = {}
-readed_file = open("szreaded.txt","r")
+readed_file = open("szidreaded.txt","r")
 for lines in readed_file:
         data = lines.strip("\n")
         poidatas[data]="readed"
@@ -21,12 +21,7 @@ hdr = {
        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
        'Connection': 'keep-alive'
        }
-
-
-    
  
-
-
 
 try:
         urlsz="http://www.poi86.com/poi/city/224.html"
@@ -37,9 +32,7 @@ except Exception,e:
                         print "banned!!!!!!!!"
                 err_file.write(urlsz+'\n'+str(e)+"\n")
                 err_file.flush()
-                os.system(r"rasphone -h 051213869974")  
-                os.system(r"rasdial 051213869974 051213869974 085564") 
-                os.system("run sz.bat")
+                os.system("run szidReader.bat")
                 sys.exit(9)
         print str(e)
         err_file.write(urlsz+'\n'+str(e)+"\n")
@@ -51,10 +44,8 @@ else:
                 cityPageDetial=pagesz.read()
                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageDetial:
                         for n in range(0,10):
-                                print "banned!!!!!!!!" 
-                        os.system(r"rasphone -h 051213869974")  
-                        os.system(r"rasdial 051213869974 051213869974 085564") 
-                        os.system("run sz.bat")              
+                                print "banned!!!!!!!!"  
+                        os.system("run szidReader.bat")             
                         sys.exit(9)
                 for n in range(0,49):
                         if " <li class=\"list-group-item\"><a href=" in cityPageDetial and "</a><span" in cityPageDetial:
@@ -68,20 +59,21 @@ else:
                                 print districtUrl
                                 try:
                                         districtPage=urllib2.urlopen(districtUrl)
-                                        
                                         if districtPage:
                                                 cityPageInfo=districtPage.read()
                                                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageInfo:
                                                         for n in range(0,10):
                                                                 print "banned!!!!!!!!"
-                                                        os.system(r"rasphone -h 051213869974")  
-                                                        os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                        os.system("run sz.bat")
+                                                        os.system("run szidReader.bat")
                                                         sys.exit(9)
                                                 if "<a href=\"javascript:;\">1" in cityPageInfo:
                                                         districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
                                                         districtPageNumString=districtPageNumInfo[districtPageNumInfo.index(">1/")+3:districtPageNumInfo.index("</a></li></ul>")]
                                                         #  http://www.poi86.com/poi/district/1332/1.html
+                                                        poiid_file.write("----district:"+districtIdString+"\n")
+                                                        poiid_file.flush()
+                                                        read_file.write("----district:"+districtIdString+"\n")
+                                                        read_file.flush()
                                                         for i in range(1,int(districtPageNumString)):
                                                                 districtPagesUrl="http://www.poi86.com/poi/district/"+districtIdString+"/"+str(i)+".html"
                                                                 if districtPagesUrl in poidatas :
@@ -97,10 +89,9 @@ else:
                                                                         print 'openERR:'
                                                                         print districtPagesUrl                                                               
                                                                         if  "Forbidden" in str(e):
-                                                                                print "banned!!!!!!!!"
-                                                                                os.system(r"rasphone -h 051213869974")  
-                                                                                os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                os.system("run sz.bat")
+                                                                                for n in range(0,10):
+                                                                                        print "banned!!!!!!!!"
+                                                                                os.system("run szidReader.bat")
                                                                                 sys.exit(9)
                                                                         print str(e)
                                                                         err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
@@ -113,9 +104,7 @@ else:
                                                                         if "警告!由于你恶意访问,您的IP已被记录!" in districtPagesUrlPageText:
                                                                                 for n in range(0,10):
                                                                                         print "banned!!!!!!!!"
-                                                                                os.system(r"rasphone -h 051213869974")  
-                                                                                os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                os.system("run sz.bat")
+                                                                                os.system("run szidReader.bat")
                                                                                 sys.exit(9)
                                                                         for j in range(0,49): 
                                                                                 if "<td><a href=" in districtPagesUrlPageText and "</a></td>" in districtPagesUrlPageText:  
@@ -131,11 +120,14 @@ else:
                                                                                                 continue     
                                                                                         print "No: " , len (poidatas)
                                                                                         pagenum+=1
-                                                                                         
-                                                                                        try:
-                                                                                                print "POI page:", poiPageUrl
-                                                                                                poiPageInfo=urllib2.urlopen(poiPageUrl)
-                                                                                                 
+                                                                                        if poiPageUrl  in poidatas:
+                                                                                                continue;
+                                                                                        try:   
+                                                                                                poiid_file.write(poiPageId[poiPageId.index("/poi/")+5:poiPageId.index("html")-1]+"\n")
+                                                                                                poiid_file.flush()                                                                                                
+                                                                                                poidatas[poiPageUrl]=poiPageId[poiPageId.index("/poi/")+5:poiPageId.index("html")-1]
+                                                                                                read_file.write(poiPageUrl+"\n")
+                                                                                                read_file.flush()
                                                                                         except Exception,e:
                                                                                                 print 'openERR:'
                                                                                                 print poiPageUrl
@@ -143,52 +135,12 @@ else:
                                                                                                 if  "Forbidden" in str(e):
                                                                                                         for n in range(0,10):
                                                                                                                 print "banned!!!!!!!!"                                                                                       
-                                                                                                        os.system(r"rasphone -h 051213869974")  
-                                                                                                        os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                                        os.system("run sz.bat")
+                                                                                                        os.system("run szidReader.bat")
                                                                                                         sys.exit(9)
                                                                                                 err_file.write(poiPageUrl+'\n'+str(e)+"\n")
                                                                                                 err_file.flush()
                                                                                                 pass
                                                                                                 continue
-                                                                                        
-                                                                                         
-                                                                                        try:
-                                                                                                 
-                                                                                                if poiPageInfo:
-                                                                                                        poiPageDetial=poiPageInfo.read()                                                                                                        
-                                                                                                        print time.strftime("%b %d %Y %H:%M:%S",time.localtime())                                                                                                         
-                                                                                                        if "警告!由于你恶意访问,您的IP已被记录!" in poiPageDetial:
-                                                                                                                for n in range(0,10):
-                                                                                                                        print "banned!!!!!!!!"
-                                                                                                                sys.exit(9)
-                                                                                                        if "火星坐标" in poiPageDetial and "百度坐标" in poiPageDetial:
-                                                                                                                poiPageDetial=poiPageDetial[poiPageDetial.index("火星坐标"):poiPageDetial.index("百度坐标")]
-                                                                                                        if "</span>" in poiPageDetial and "</li>" in poiPageDetial:
-                                                                                                                poi=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")]+"\n"
-                                                                                                                print "write foi file"
-                                                                                                                poi_file.write(poi)
-                                                                                                                poi_file.flush()
-                                                                                                                print "POI:   ", poi
-                                                                                                                poidatas[poiPageUrl]=poi
-                                                                                                                read_file.write(poiPageUrl+"\n")
-                                                                                                                read_file.flush()
-                                                                                                                print "wrote read File"                                                                                                      
-                                                                                        except Exception,e:
-                                                                                                print 'saveERR:'
-                                                                                                print str(e)
-                                                                                                err_file.write(poiPageUrl+'\n'+str(e)+"\n")
-                                                                                                err_file.flush()
-                                                                                                if  "Forbidden" in str(e):
-                                                                                                        for n in range(0,10):
-                                                                                                                print "banned!!!!!!!!"
-                                                                                                        os.system(r"rasphone -h 051213869974")  
-                                                                                                        os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                                        os.system("run sz.bat")
-                                                                                                        sys.exit(9)
-                                                                                                pass	
-                                                                                                continue
-                                                                                        
                                                                 poidatas[districtPagesUrl]="readed"
                                                                 read_file.write(districtPagesUrl+"\n") 
                                                                 read_file.flush()
@@ -196,16 +148,14 @@ else:
                                         if  "Forbidden" in str(e):
                                                 for n in range(0,10):
                                                         print "banned!!!!!!!!"
-                                                os.system(r"rasphone -h 051213869974")  
-                                                os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                os.system("run sz.bat")
                                                 err_file.write(districtUrl+'\n'+str(e)+"\n")
                                                 err_file.flush()
+                                                os.system("run szidReader.bat")
                                                 sys.exit(9)
                                         print str(e)
                                         err_file.write(districtUrl+'\n'+str(e)+"\n")
                                         err_file.flush()
                                         pass			
-poi_file.close()
+poiid_file.close()
 err_file.close()
 read_file.close()
