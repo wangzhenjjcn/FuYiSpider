@@ -8,9 +8,6 @@ allpoidatas={}
 readpoilinks={}
 poidatas = {}
 poiids_file = open("poiid.txt","r")
-
-
-
 connection = pymysql.connect(host='127.0.0.1', port=3306, user='test', password='test', db='poi', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
 cursor = connection.cursor()
 
@@ -84,20 +81,20 @@ for key in allpoidatas:
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
                                 province=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in province:
-                                        province=province[province.index(">"+1):]
+                                        province=province[province.index(">")+1:]
 
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属城市"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
                                 city=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in city:
-                                        city=city[city.index(">"+1):]
+                                        city=city[city.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属区县"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
                                 district=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in district:
-                                        district=district[district.index(">"+1):]
+                                        district=district[district.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("详细地址"):]
                                 address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
@@ -109,13 +106,13 @@ for key in allpoidatas:
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
                                 sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in sort:
-                                        sort=sort[sort.index(">"+1):]
+                                        sort=sort[sort.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属标签"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
                                 tag=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in tag:
-                                        tag=tag[tag.index(">"+1):]
+                                        tag=tag[tag.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("大地坐标"):]
                                 earthGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
@@ -126,6 +123,7 @@ for key in allpoidatas:
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("百度坐标"):]
                                 baiduGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
                                 
+                                 
                                 sqlValues="'"+key+"','"+name+"','"+province+"','"+ city+"','"+district+"','"+ address+"','"+phone +"','"+ sort +"','"+ tag +"','"+ earthGPS+"','"+ marsGPS+"','"+ baiduGPS+"'"
                                 sql ="INSERT INTO `data` (`id`, `name`, `province`, `city`, `district`, `address`, `phone`, `sort`, `tag`, `earthGPS`, `marsGPS`, `baiduGPS`) VALUES (" + sqlValues+ ")"
                                 try:
