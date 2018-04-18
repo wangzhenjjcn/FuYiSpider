@@ -45,6 +45,8 @@ else:
                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageDetial:
                         for n in range(0,10):
                                 print "banned!!!!!!!!"  
+                        os.system(r"rasphone -h 051213869974")  
+                        os.system(r"rasdial 051213869974 051213869974 085564") 
                         os.system("run_szidReader.bat")             
                         sys.exit(9)
                 for n in range(0,49):
@@ -64,6 +66,8 @@ else:
                                                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageInfo:
                                                         for n in range(0,10):
                                                                 print "banned!!!!!!!!"
+                                                        os.system(r"rasphone -h 051213869974")  
+                                                        os.system(r"rasdial 051213869974 051213869974 085564") 
                                                         os.system("run_szidReader.bat")
                                                         sys.exit(9)
                                                 if "<a href=\"javascript:;\">1" in cityPageInfo:
@@ -91,8 +95,10 @@ else:
                                                                         if  "Forbidden" in str(e):
                                                                                 for n in range(0,10):
                                                                                         print "banned!!!!!!!!"
-                                                                        os.system("run_szidReader.bat")
-                                                                        sys.exit(9)
+                                                                                os.system(r"rasphone -h 051213869974")  
+                                                                                os.system(r"rasdial 051213869974 051213869974 085564") 
+                                                                                os.system("run_szidReader.bat")
+                                                                                sys.exit(9)
                                                                         print str(e)
                                                                         err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
                                                                         err_file.flush()
@@ -104,6 +110,8 @@ else:
                                                                         if "警告!由于你恶意访问,您的IP已被记录!" in districtPagesUrlPageText:
                                                                                 for n in range(0,10):
                                                                                         print "banned!!!!!!!!"
+                                                                                os.system(r"rasphone -h 051213869974")  
+                                                                                os.system(r"rasdial 051213869974 051213869974 085564") 
                                                                                 os.system("run_szidReader.bat")
                                                                                 sys.exit(9)
                                                                         
@@ -132,8 +140,7 @@ else:
                                                                                                                 districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
                                                                                                                 poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
                                                                                                                 poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
-                                                                                                print "   --right:" + poiPageUrl         
-                                                                                        print "No: " , len (poidatas)
+                                                                                                print "   --right:" + poiPageUrl                                                                                        
                                                                                         pagenum+=1
                                                                                         if poiPageUrl  in poidatas:
                                                                                                 continue;
@@ -150,6 +157,8 @@ else:
                                                                                                 if  "Forbidden" in str(e):
                                                                                                         for n in range(0,10):
                                                                                                                 print "banned!!!!!!!!"                                                                                       
+                                                                                                        os.system(r"rasphone -h 051213869974")  
+                                                                                                        os.system(r"rasdial 051213869974 051213869974 085564") 
                                                                                                         os.system("run_szidReader.bat")
                                                                                                         sys.exit(9)
                                                                                                 err_file.write(poiPageUrl+'\n'+str(e)+"\n")
@@ -167,6 +176,8 @@ else:
                                                         print "banned!!!!!!!!"
                                                 err_file.write(districtUrl+'\n'+str(e)+"\n")
                                                 err_file.flush()
+                                                os.system(r"rasphone -h 051213869974")  
+                                                os.system(r"rasdial 051213869974 051213869974 085564") 
                                                 os.system("run_szidReader.bat")
                                                 sys.exit(9)
                                         print str(e)

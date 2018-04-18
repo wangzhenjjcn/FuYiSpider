@@ -543,3 +543,181 @@ http://www.poi86.com/poi/27607763.html
 [Errno 10054] 
 http://www.poi86.com/poi/27607990.html
 [Errno 10054] 
+http://www.poi86.com/poi/27617978.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2284/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/27630488.html
+[Errno 10054] 
+http://www.poi86.com/poi/27630529.html
+[Errno 10053] 
+http://www.poi86.com/poi/27677398.html
+[Errno 10053] 
+http://www.poi86.com/poi/27677400.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677401.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677403.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677416.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677425.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677444.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677453.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677472.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677473.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677474.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677475.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677492.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677510.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677523.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677524.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677559.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677560.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677574.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677576.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677577.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677623.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/27677624.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1017.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1018.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1019.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1020.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1021.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1022.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1023.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2284/1024.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2581/1.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2665/1.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/district/2792/1.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/16665227.html
+[Errno 10054] 
+http://www.poi86.com/poi/16666544.html
+[Errno 10054] 
+http://www.poi86.com/poi/16668642.html
+[Errno 10054] 
+http://www.poi86.com/poi/16669022.html
+[Errno 10054] 
+http://www.poi86.com/poi/16669367.html
+[Errno 10054] 
+http://www.poi86.com/poi/16671011.html
+[Errno 10054] 
+http://www.poi86.com/poi/16674434.html
+[Errno 10054] 
+http://www.poi86.com/poi/16674500.html
+[Errno 10054] 
+http://www.poi86.com/poi/16677709.html
+[Errno 10054] 
+http://www.poi86.com/poi/16677930.html
+[Errno 10054] 
+http://www.poi86.com/poi/16678694.html
+[Errno 10054] 
+http://www.poi86.com/poi/16682376.html
+[Errno 10054] 
+http://www.poi86.com/poi/16682623.html
+[Errno 10054] 
+http://www.poi86.com/poi/16682785.html
+[Errno 10054] 
+http://www.poi86.com/poi/16682811.html
+[Errno 10054] 
+http://www.poi86.com/poi/16682857.html
+[Errno 10054] 
+http://www.poi86.com/poi/16683203.html
+[Errno 10054] 
+http://www.poi86.com/poi/16683627.html
+[Errno 10054] 
+http://www.poi86.com/poi/16683785.html
+[Errno 10054] 
+http://www.poi86.com/poi/16684535.html
+[Errno 10054] 
+http://www.poi86.com/poi/16684547.html
+[Errno 10054] 
+http://www.poi86.com/poi/16684632.html
+[Errno 10054] 
+http://www.poi86.com/poi/16684646.html
+[Errno 10054] 
+http://www.poi86.com/poi/16684717.html
+[Errno 10054] 
+http://www.poi86.com/poi/16684797.html
+[Errno 10054] 
+http://www.poi86.com/poi/16685050.html
+[Errno 10054] 
+http://www.poi86.com/poi/16685153.html
+[Errno 10054] 
+http://www.poi86.com/poi/16687027.html
+[Errno 10054] 
+http://www.poi86.com/poi/16687205.html
+[Errno 10054] 
+http://www.poi86.com/poi/16687361.html
+[Errno 10054] 
+http://www.poi86.com/poi/16687756.html
+[Errno 10054] 
+http://www.poi86.com/poi/16687768.html
+[Errno 10054] 
+http://www.poi86.com/poi/16687780.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1934/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688022.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688160.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688480.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688577.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688843.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688865.html
+[Errno 10054] 
+http://www.poi86.com/poi/16688868.html
+[Errno 10054] 
+http://www.poi86.com/poi/16690609.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2113/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/district/2581/1.html
+name 'starttime' is not defined
+http://www.poi86.com/poi/district/2665/1.html
+name 'starttime' is not defined
+http://www.poi86.com/poi/district/2792/1.html
+name 'starttime' is not defined
+http://www.poi86.com/poi/district/1748/1.html
+[Errno 10054] 
+http://www.poi86.com/poi/city/224.html
+<urlopen error [Errno 11001] getaddrinfo failed>
+http://www.poi86.com/poi/16828197.html
+<urlopen error [Errno 10060] >
+http://www.poi86.com/poi/16831950.html
+[Errno 0] Error
