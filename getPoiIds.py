@@ -1,13 +1,12 @@
 #coding=utf-8
 import urllib2,sys,time,datetime,os
-poiid_file=open("poiid.txt","a")
-err_file=open("iderrs.txt","a")
-read_file=open("szidreaded.txt","a")
+poiid_file=open("poiid2.txt","a")
+read_file=open("szidreaded2.txt","a")
 errpoidatas={}
 allpoidatas={}
 readpoilinks={}
 poidatas = {}
-readed_file = open("szidreaded.txt","r")
+readed_file = open("szidreaded2.txt","r")
 for lines in readed_file:
         data = lines.strip("\n")
         poidatas[data]="readed"
@@ -30,13 +29,11 @@ except Exception,e:
         if  "Forbidden" in str(e):
                 for n in range(0,10):
                         print "banned!!!!!!!!"
-                err_file.write(urlsz+'\n'+str(e)+"\n")
-                err_file.flush()
+               
                 os.system("run_szidReader.bat")
         sys.exit(9)
         print str(e)
-        err_file.write(urlsz+'\n'+str(e)+"\n")
-        err_file.flush()
+       
         pass
                                         
 else:
@@ -56,6 +53,10 @@ else:
                                 print "District ID:"
                                 print districtIdString
                                 intdis=int(districtIdString)
+                                if intdis > 1751 and intdis < 2792:
+                                        if intdis <2114 or intdis >2116:
+                                                pass
+                                                continue 
                                 districtUrl="http://www.poi86.com/poi/district/"+districtIdString+"/1.html"
                                 print "District WebLink:"
                                 print districtUrl
@@ -74,8 +75,6 @@ else:
                                                         districtPageNumInfo=cityPageInfo[cityPageInfo.index("<a href=\"javascript:;\">1"):]
                                                         districtPageNumString=districtPageNumInfo[districtPageNumInfo.index(">1/")+3:districtPageNumInfo.index("</a></li></ul>")]
                                                         #  http://www.poi86.com/poi/district/1332/1.html
-                                                        poiid_file.write("----district:"+districtIdString+"\n")
-                                                        poiid_file.flush()
                                                         read_file.write("----district:"+districtIdString+"\n")
                                                         read_file.flush()
                                                         for i in range(1,int(districtPageNumString)):
@@ -100,8 +99,7 @@ else:
                                                                                 os.system("run_szidReader.bat")
                                                                                 sys.exit(9)
                                                                         print str(e)
-                                                                        err_file.write(districtPagesUrl+'\n'+str(e)+"\n")
-                                                                        err_file.flush()
+                                                                        
                                                                         pass
                                                                         continue
                                                                 
@@ -115,9 +113,13 @@ else:
                                                                                 os.system("run_szidReader.bat")
                                                                                 sys.exit(9)
                                                                         
-                                                                        for j in range(0,49): 
+                                                                        for j in range(0,50): 
                                                                                 if "<td><a href=" in districtPagesUrlPageText and "</a></td>" in districtPagesUrlPageText:  
-                                                                                        districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+1:]
+                                                                                        if "poi" in districtPagesUrlPageText:
+                                                                                                districtPagesUrlPageText=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")-1:]
+                                                                                        else:
+                                                                                                pass
+                                                                                                continue
                                                                                         poiPageId=districtPagesUrlPageText[districtPagesUrlPageText.index("<td><a href=")+13:]
                                                                                         poiPageUrl="http://www.poi86.com"+poiPageId[:poiPageId.index("html")+4]
                                                                                         if poiPageUrl in poidatas :
@@ -161,8 +163,7 @@ else:
                                                                                                         os.system(r"rasdial 051213869974 051213869974 085564") 
                                                                                                         os.system("run_szidReader.bat")
                                                                                                         sys.exit(9)
-                                                                                                err_file.write(poiPageUrl+'\n'+str(e)+"\n")
-                                                                                                err_file.flush()
+                                                                                                
                                                                                                 pass
                                                                                                 continue
                                                                                 else:
@@ -174,21 +175,18 @@ else:
                                         if  "Forbidden" in str(e):
                                                 for n in range(0,10):
                                                         print "banned!!!!!!!!"
-                                                err_file.write(districtUrl+'\n'+str(e)+"\n")
-                                                err_file.flush()
+                                               
                                                 os.system(r"rasphone -h 051213869974")  
                                                 os.system(r"rasdial 051213869974 051213869974 085564") 
                                                 os.system("run_szidReader.bat")
                                                 sys.exit(9)
                                         print str(e)
-                                        err_file.write(districtUrl+'\n'+str(e)+"\n")
-                                        err_file.flush()
+                                        
                                         pass			
 poiid_file.close()
-err_file.close()
+
 read_file.close()
 
 for n in range(0,100):
         print "finished!!!!!!!!"
 
-os.system("run_szidReader.bat")

@@ -1,7 +1,5 @@
 #coding=utf-8
 import urllib2,sys,time,datetime,os,pymysql.cursors
-poidata_file=open("poidata.txt","a")
-err_file=open("errspiodataread.txt","a")
 read_file=open("szreadedpoi.txt","a")
 errpoidatas={}
 allpoidatas={}
@@ -58,8 +56,6 @@ for key in allpoidatas:
                         os.system(r"rasdial 051213869974 051213869974 085564") 
                         os.system("run_getpoiDatas.bat")
                         sys.exit(9)
-                err_file.write(poiPageUrl+'\n'+str(e)+"\n")
-                err_file.flush()
                 pass
                 continue
         try:   
@@ -75,7 +71,7 @@ for key in allpoidatas:
                         
                         else:
                                 id= int(key)
-                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"")
+                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'")
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属省份"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
@@ -97,7 +93,7 @@ for key in allpoidatas:
                                         district=district[district.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("详细地址"):]
-                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
+                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'")
                                 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("电话号码"):]
                                 phone=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
@@ -107,12 +103,29 @@ for key in allpoidatas:
                                 sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in sort:
                                         sort=sort[sort.index(">")+1:]
+                                        if ">" in sort:
+                                                predata=sort[:sort.index("<")]
+                                                offdata=sort[sort.index(">")+1:]
+                                                sort=predata+offdata
+                                                if ">" in sort:
+                                                        predata=sort[:sort.index("<")]
+                                                        offdata=sort[sort.index(">")+1:]
+                                                        sort=predata+offdata
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属标签"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
                                 tag=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
                                 if ">" in tag:
                                         tag=tag[tag.index(">")+1:]
+                                        if ">" in tag:
+                                                predata=tag[:tag.index("<")]
+                                                offdata=tag[tag.index(">")+1:]
+                                                tag=predata+offdata
+                                                if ">" in tag:
+                                                        predata=tag[:tag.index("<")]
+                                                        offdata=tag[tag.index(">")+1:]
+                                                        tag=predata+offdata
+
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("大地坐标"):]
                                 earthGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
@@ -130,23 +143,25 @@ for key in allpoidatas:
                                         cursor.execute(sql)
                                         connection.commit()
                                 except Exception,e:
-                                        err_file.write(poiPageUrl+'\n'+str(e)+"\n")
-                                        err_file.flush()
-                                        print "save err"
+                                       
+                                        print "sql err"
                                         print str(e)
                                         pass
                                         continue
-                                poi=key+"---"+name+"---"+province+"---"+ city+"---"+district+"---"+ address+"---"+phone +"---"+ sort +"---"+ tag +"---"+ earthGPS+"---"+ marsGPS+"---"+ baiduGPS
-                                poidata_file.write(poi.strip("\n"))
-                                poidata_file.flush()
-                                poidatas[poiPageUrl]=poi
-                                read_file.write(poiPageUrl+"\n")
-                                read_file.flush()                                                                                                     
+                                try:
+                                        poidatas[poiPageUrl]=sqlValues
+                                        read_file.write(poiPageUrl+"\n")
+                                        read_file.flush()    
+                                except Exception,e:
+                                        
+                                        print "save err"
+                                        print str(e)
+                                        pass
+                                        continue                                                                                                 
         except Exception,e:
                 print 'saveERR:'
                 print str(e)
-                err_file.write(poiPageUrl+'\n'+str(e)+"\n")
-                err_file.flush()
+               
                 if  "Forbidden" in str(e):
                         for n in range(0,10):
                                 print "banned!!!!!!!!"
@@ -157,9 +172,8 @@ for key in allpoidatas:
                 pass	
                 continue
 db.close()     
-poidata_file.close()
-err_file.close()
 read_file.close()
+
 
 for n in range(0,20):
         print "finished!!!!!!!!"
