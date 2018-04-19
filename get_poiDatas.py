@@ -73,7 +73,8 @@ for key in allpoidatas:
                         
                         else:
                                 id= int(key)
-                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";")
+
+                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("'","\\\'").strip("\r\n").strip("\"").strip(";").strip("&")
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属省份"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
@@ -82,62 +83,75 @@ for key in allpoidatas:
                                         province=province[province.index(">")+1:]
 
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("所属城市"):]
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
-                                city=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+
+                                city=poiPageDetial[poiPageDetial.index("所属城市"):].strip("'")
+                                city=city[city.index("<a")+1:].strip("\r\n").strip("\"").strip(";")
+                                city=city[city.index(">")+1:city.index("</a>")].strip("\n").strip("\"").strip(";")
                                 if ">" in city:
                                         city=city[city.index(">")+1:]
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("所属区县"):]
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
-                                district=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+                                district=poiPageDetial[poiPageDetial.index("所属区县"):].strip("\r\n")
+                                district=district[district.index("<a")+1:].strip("\r\n").strip("\"").strip(";").strip("&")
+                                district=district[district.index(">")+1:district.index("</a>")].strip("\n").strip("\"").strip(";").strip("&")
                                 if ">" in district:
                                         district=district[district.index(">")+1:]
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("详细地址"):]
-                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";")
+                                address=poiPageDetial[poiPageDetial.index("详细地址"):].strip("\r\n").strip("\"").strip(";").strip("&").strip("\r").strip("\n")
+                                address=address[address.index("</span>")+8:address.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";").strip("&")
                                 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("电话号码"):]
-                                phone=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip(";")
+                                phone=poiPageDetial[poiPageDetial.index("电话号码"):].strip("\r\n").strip("\"").strip(";").strip("&")
+                                phone=phone[phone.index("</span>")+8:phone.index("</li>")].strip("\n").strip("\"").strip(";").strip("&")
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("所属分类"):]
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
-                                sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"").strip(";")
-                                if ">" in sort:
-                                        sort=sort[sort.index(">")+1:]
+                                sort=poiPageDetial[poiPageDetial.index("所属分类"):]
+                                if  sort.index("</li>")-sort.index("</span>") <9:
+                                        sort=""
+                                else:
+                                        sort=sort[sort.index("a"):].strip("\r\n").strip("\"").strip(";").strip("&")
+                                        sort=sort[sort.index(">")+1:sort.index("</a>")].strip("\n").strip("\"").strip(";").strip("&")
+
                                         if ">" in sort:
-                                                predata=sort[:sort.index("<")]
-                                                offdata=sort[sort.index(">")+1:]
-                                                sort=predata+offdata
+                                                sort=sort[sort.index(">")+1:]
                                                 if ">" in sort:
                                                         predata=sort[:sort.index("<")]
                                                         offdata=sort[sort.index(">")+1:]
                                                         sort=predata+offdata
+                                                        if ">" in sort:
+                                                                predata=sort[:sort.index("<")]
+                                                                offdata=sort[sort.index(">")+1:]
+                                                                sort=predata+offdata
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("所属标签"):]
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
-                                tag=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
-                                if ">" in tag:
-                                        tag=tag[tag.index(">")+1:]
+
+                                tag=poiPageDetial[poiPageDetial.index("所属标签"):]
+                                if  tag.index("</li>")-tag.index("</span>") <9:
+                                        tag=""
+                                else:
+                                        tag=tag[tag.index("</span>")+8:tag.index("</li>")].strip("\r\n").strip("\"").strip(";").strip("&").strip("\r").strip("\n")
+                                        if "<a" in tag:
+                                                tag=tag[tag.index("a"):].strip("\r\n").strip("\"").strip(";").strip("&")
+                                                tag=tag[tag.index(">")+1:tag.index("</a>")].strip("\n").strip("\"").strip("&")
+
                                         if ">" in tag:
-                                                predata=tag[:tag.index("<")]
-                                                offdata=tag[tag.index(">")+1:]
-                                                tag=predata+offdata
+                                                tag=tag[tag.index(">")+1:].strip("\r\n").strip("\"").strip(";").strip("&")
                                                 if ">" in tag:
-                                                        predata=tag[:tag.index("<")]
-                                                        offdata=tag[tag.index(">")+1:]
+                                                        predata=tag[:tag.index("<")].strip("\n").strip("\"").strip("&")
+                                                        offdata=tag[tag.index(">")+1:].strip("\n").strip("\"").strip("&")
                                                         tag=predata+offdata
+                                                        if ">" in tag:
+                                                                predata=tag[:tag.index("<")].strip("\r\n").strip("\"").strip(";").strip("&")
+                                                                offdata=tag[tag.index(">")+1:].strip("\r\n").strip("\"").strip(";").strip("&")
+                                                                tag=predata+offdata
 
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("大地坐标"):]
-                                earthGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("火星坐标"):]
-                                marsGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
+                                earthGPS=poiPageDetial[poiPageDetial.index("大地坐标"):].strip("\r\n").strip("\"").strip(";").strip("&")
+                                earthGPS=earthGPS[earthGPS.index("</span>")+8:earthGPS.index("</li>")].strip("\n").strip("\"").strip("&")
+
+                                marsGPS=poiPageDetial[poiPageDetial.index("火星坐标"):].strip("\r\n").strip("\"").strip(";").strip("&")
+                                marsGPS=marsGPS[marsGPS.index("</span>")+8:marsGPS.index("</li>")].strip("\n").strip("\"").strip("&")
                                 
-                                poiPageDetial=poiPageDetial[poiPageDetial.index("百度坐标"):]
-                                baiduGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
-                                
+                                baiduGPS=poiPageDetial[poiPageDetial.index("百度坐标"):].strip("\r\n").strip("\"").strip(";").strip("&")
+                                baiduGPS=baiduGPS[baiduGPS.index("</span>")+8:baiduGPS.index("</li>")].strip("\n").strip("\"").strip("&")
+
                                  
                                 sqlValues="\'"+key+"\',\'"+name+"\',\'"+province+"\',\'"+ city+"\',\'"+district+"\',\'"+ address+"\',\'"+phone +"\',\'"+ sort +"\',\'"+ tag +"\',\'"+ earthGPS+"\',\'"+ marsGPS+"\',\'"+ baiduGPS+"\'"
                                 sql ="INSERT INTO `data` (`id`, `name`, `province`, `city`, `district`, `address`, `phone`, `sort`, `tag`, `earthGPS`, `marsGPS`, `baiduGPS`) VALUES (" + sqlValues+ ")"
@@ -145,17 +159,33 @@ for key in allpoidatas:
                                         cursor.execute(sql)
                                         connection.commit()
                                 except Exception,e:
-                                       
-                                        print "sql err"
-                                        print str(e)
-                                        pass
-                                        continue
+
+ 
+                                        if "Duplicate" in str(e) or "PRIMARY" in str(e):
+                                                print "try again"
+                                                sql ="UPDATE  `data` SET `name`=\'"+name+"\', `province`=\'"+province+"\', `city`=\'"+city+"\', `district`=\'"+district+"\', `address`=\'"+address+"\', `phone`=\'"+phone+"\', `sort`=\'"+sort+"\', `tag`=\'"+tag+"\',  `earthGPS`=\'"+earthGPS+"\', `marsGPS`=\'"+marsGPS+"\', `baiduGPS`=\'"+baiduGPS+"\' WHERE (`id`=\'"+key+"\')"
+                                                try:
+                                                        print "try update"
+                                                        cursor.execute(sql)
+                                                        connection.commit()
+                                                        print "UPDATED DATA:"+key
+                                                        print "update sucess"
+                                                except Exception,e:
+                                                        print "update fauild"
+                                                        print str(e)
+                                                        pass
+                                                        continue
+                                        else:
+                                                print "sql err"
+                                                print str(e)
+                                                pass
+                                                continue
+
                                 try:
-                                        poidatas[poiPageUrl]=sqlValues
+                                        poidatas[poiPageUrl]="readed"
                                         read_file.write(poiPageUrl+"\n")
                                         read_file.flush()    
                                 except Exception,e:
-                                        
                                         print "save err"
                                         print str(e)
                                         pass

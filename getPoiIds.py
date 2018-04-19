@@ -1,5 +1,5 @@
 #coding=utf-8
-import urllib2,sys,time,datetime,os
+import urllib2,sys,time,datetime,os,pymysql.cursors
 poiid_file=open("poiid.txt","a")
 read_file=open("szidreaded.txt","a")
 errpoidatas={}
@@ -29,9 +29,13 @@ except Exception,e:
         if  "Forbidden" in str(e):
                 for n in range(0,10):
                         print "banned!!!!!!!!"
-               
+                time.sleep(5)
+                os.system(r"rasphone -h 051213869974")  
+                os.system(r"rasdial 051213869974 051213869974 085564") 
                 os.system("run_szidReader.bat")
-        sys.exit(9)
+                sys.exit(9)
+           
+ 
         print str(e)
        
         pass
@@ -42,9 +46,10 @@ else:
                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageDetial:
                         for n in range(0,10):
                                 print "banned!!!!!!!!"  
+                        time.sleep(5)
                         os.system(r"rasphone -h 051213869974")  
                         os.system(r"rasdial 051213869974 051213869974 085564") 
-                        os.system("run_szidReader.bat")             
+                        os.system("run_szidReader.bat")
                         sys.exit(9)
                 for n in range(0,49):
                         if " <li class=\"list-group-item\"><a href=" in cityPageDetial and "</a><span" in cityPageDetial:
@@ -67,6 +72,7 @@ else:
                                                 if "警告!由于你恶意访问,您的IP已被记录!" in cityPageInfo:
                                                         for n in range(0,10):
                                                                 print "banned!!!!!!!!"
+                                                        time.sleep(5)
                                                         os.system(r"rasphone -h 051213869974")  
                                                         os.system(r"rasdial 051213869974 051213869974 085564") 
                                                         os.system("run_szidReader.bat")
@@ -94,6 +100,7 @@ else:
                                                                         if  "Forbidden" in str(e):
                                                                                 for n in range(0,10):
                                                                                         print "banned!!!!!!!!"
+                                                                                time.sleep(5)
                                                                                 os.system(r"rasphone -h 051213869974")  
                                                                                 os.system(r"rasdial 051213869974 051213869974 085564") 
                                                                                 os.system("run_szidReader.bat")
@@ -159,10 +166,11 @@ else:
                                                                                                 if  "Forbidden" in str(e):
                                                                                                         for n in range(0,10):
                                                                                                                 print "banned!!!!!!!!"                                                                                       
-                                                                                                        os.system(r"rasphone -h 051213869974")  
-                                                                                                        os.system(r"rasdial 051213869974 051213869974 085564") 
-                                                                                                        os.system("run_szidReader.bat")
-                                                                                                        sys.exit(9)
+                                                                                                        time.sleep(5)
+                                                                                                os.system(r"rasphone -h 051213869974")  
+                                                                                                os.system(r"rasdial 051213869974 051213869974 085564") 
+                                                                                                os.system("run_szidReader.bat")
+                                                                                                sys.exit(9)     
                                                                                                 
                                                                                                 pass
                                                                                                 continue
@@ -176,10 +184,11 @@ else:
                                                 for n in range(0,10):
                                                         print "banned!!!!!!!!"
                                                
+                                                time.sleep(5)
                                                 os.system(r"rasphone -h 051213869974")  
                                                 os.system(r"rasdial 051213869974 051213869974 085564") 
                                                 os.system("run_szidReader.bat")
-                                                sys.exit(9)
+                                                sys.exit(9)     
                                         print str(e)
                                         
                                         pass			
@@ -190,3 +199,4 @@ read_file.close()
 for n in range(0,100):
         print "finished!!!!!!!!"
 
+os.system("run_getpoiDatas.bat")
