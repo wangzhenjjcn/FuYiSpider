@@ -52,6 +52,7 @@ for key in allpoidatas:
                 if  "Forbidden" in str(e):
                         for n in range(0,10):
                                 print "banned!!!!!!!!"                                                                                       
+                        time.sleep(5)
                         os.system(r"rasphone -h 051213869974")  
                         os.system(r"rasdial 051213869974 051213869974 085564") 
                         os.system("run_getpoiDatas.bat")
@@ -64,6 +65,7 @@ for key in allpoidatas:
                         if "警告!由于你恶意访问,您的IP已被记录!" in poiPageDetial:
                                 for n in range(0,10):
                                         print "banned!!!!!!!!"
+                                time.sleep(5)
                                 os.system(r"rasphone -h 051213869974")  
                                 os.system(r"rasdial 051213869974 051213869974 085564") 
                                 os.system("run_getpoiDatas.bat")       
@@ -71,7 +73,7 @@ for key in allpoidatas:
                         
                         else:
                                 id= int(key)
-                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'")
+                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";")
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属省份"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
@@ -93,14 +95,14 @@ for key in allpoidatas:
                                         district=district[district.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("详细地址"):]
-                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'")
+                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";")
                                 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("电话号码"):]
-                                phone=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
+                                phone=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip(";")
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属分类"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
-                                sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+                                sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"").strip(";")
                                 if ">" in sort:
                                         sort=sort[sort.index(">")+1:]
                                         if ">" in sort:
@@ -137,7 +139,7 @@ for key in allpoidatas:
                                 baiduGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
                                 
                                  
-                                sqlValues="'"+key+"','"+name+"','"+province+"','"+ city+"','"+district+"','"+ address+"','"+phone +"','"+ sort +"','"+ tag +"','"+ earthGPS+"','"+ marsGPS+"','"+ baiduGPS+"'"
+                                sqlValues="\'"+key+"\',\'"+name+"\',\'"+province+"\',\'"+ city+"\',\'"+district+"\',\'"+ address+"\',\'"+phone +"\',\'"+ sort +"\',\'"+ tag +"\',\'"+ earthGPS+"\',\'"+ marsGPS+"\',\'"+ baiduGPS+"\'"
                                 sql ="INSERT INTO `data` (`id`, `name`, `province`, `city`, `district`, `address`, `phone`, `sort`, `tag`, `earthGPS`, `marsGPS`, `baiduGPS`) VALUES (" + sqlValues+ ")"
                                 try:
                                         cursor.execute(sql)
@@ -165,6 +167,7 @@ for key in allpoidatas:
                 if  "Forbidden" in str(e):
                         for n in range(0,10):
                                 print "banned!!!!!!!!"
+                        time.sleep(5)
                         os.system(r"rasphone -h 051213869974")  
                         os.system(r"rasdial 051213869974 051213869974 085564") 
                         os.system("run_getpoiDatas.bat")

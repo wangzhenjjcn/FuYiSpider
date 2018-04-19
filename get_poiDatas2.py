@@ -51,11 +51,11 @@ for key in allpoidatas:
                 print str(e)
                 if  "Forbidden" in str(e):
                         for n in range(0,10):
-                                print "banned!!!!!!!!"                                                                                       
-                         
-                         
+                                print "banned!!!!!!!!"   
+                                                                                                                    
                          
                         sys.exit(9)
+                
                 pass
                 continue
         try:   
@@ -71,36 +71,36 @@ for key in allpoidatas:
                         
                         else:
                                 id= int(key)
-                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'")
+                                name= poiPageDetial[poiPageDetial.index("<h1>")+4:poiPageDetial.index("</h1>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";")
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属省份"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
-                                province=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+                                province=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"").strip(";")
                                 if ">" in province:
                                         province=province[province.index(">")+1:]
 
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属城市"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
-                                city=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+                                city=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"").strip(";")
                                 if ">" in city:
                                         city=city[city.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属区县"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("<a")+1:]
-                                district=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+                                district=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"").strip(";")
                                 if ">" in district:
                                         district=district[district.index(">")+1:]
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("详细地址"):]
-                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'")
+                                address=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip("\\").replace("\'","\\\'").strip(";")
                                 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("电话号码"):]
-                                phone=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
+                                phone=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"").strip(";")
 
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("所属分类"):]
                                 poiPageDetial=poiPageDetial[poiPageDetial.index("a"):]
-                                sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"")
+                                sort=poiPageDetial[poiPageDetial.index(">")+1:poiPageDetial.index("</a>")].strip("\n").strip("\"").strip(";")
                                 if ">" in sort:
                                         sort=sort[sort.index(">")+1:]
                                         if ">" in sort:
@@ -137,7 +137,7 @@ for key in allpoidatas:
                                 baiduGPS=poiPageDetial[poiPageDetial.index("</span>")+8:poiPageDetial.index("</li>")].strip("\n").strip("\"")
                                 
                                  
-                                sqlValues="'"+key+"','"+name+"','"+province+"','"+ city+"','"+district+"','"+ address+"','"+phone +"','"+ sort +"','"+ tag +"','"+ earthGPS+"','"+ marsGPS+"','"+ baiduGPS+"'"
+                                sqlValues="\'"+key+"\',\'"+name+"\',\'"+province+"\',\'"+ city+"\',\'"+district+"\',\'"+ address+"\',\'"+phone +"\',\'"+ sort +"\',\'"+ tag +"\',\'"+ earthGPS+"\',\'"+ marsGPS+"\',\'"+ baiduGPS+"\'"
                                 sql ="INSERT INTO `data2` (`id`, `name`, `province`, `city`, `district`, `address`, `phone`, `sort`, `tag`, `earthGPS`, `marsGPS`, `baiduGPS`) VALUES (" + sqlValues+ ")"
                                 try:
                                         cursor.execute(sql)

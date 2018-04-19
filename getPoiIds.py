@@ -1,12 +1,12 @@
 #coding=utf-8
 import urllib2,sys,time,datetime,os
-poiid_file=open("poiid2.txt","a")
-read_file=open("szidreaded2.txt","a")
+poiid_file=open("poiid.txt","a")
+read_file=open("szidreaded.txt","a")
 errpoidatas={}
 allpoidatas={}
 readpoilinks={}
 poidatas = {}
-readed_file = open("szidreaded2.txt","r")
+readed_file = open("szidreaded.txt","r")
 for lines in readed_file:
         data = lines.strip("\n")
         poidatas[data]="readed"
@@ -79,11 +79,11 @@ else:
                                                         read_file.flush()
                                                         for i in range(1,int(districtPageNumString)):
                                                                 districtPagesUrl="http://www.poi86.com/poi/district/"+districtIdString+"/"+str(i)+".html"
-                                                                if districtPagesUrl in poidatas :
-                                                                        print "Exist Page:"
-                                                                        print districtPagesUrl
-                                                                        print "readed Next--->"
-                                                                        continue
+                                                                # if districtPagesUrl in poidatas :
+                                                                #         print "Exist Page:"
+                                                                #         print districtPagesUrl
+                                                                #         print "readed Next--->"
+                                                                #         continue
                                                                 print "District PageWebLink:"                                                        
                                                                 print districtPagesUrl
                                                                 try:
