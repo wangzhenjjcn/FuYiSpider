@@ -53,7 +53,8 @@ for key in allpoidatas:
                         for n in range(0,10):
                                 print "banned!!!!!!!!"   
                                                                                                                     
-                         
+                        time.sleep(30)                        
+                        os.system("run_getpoiDatas2.bat")
                         sys.exit(9)
                 
                 pass
@@ -64,9 +65,8 @@ for key in allpoidatas:
                         if "警告!由于你恶意访问,您的IP已被记录!" in poiPageDetial:
                                 for n in range(0,10):
                                         print "banned!!!!!!!!"
-                                 
-                                 
-                                        
+                                time.sleep(30)                        
+                                os.system("run_getpoiDatas2.bat") 
                                 sys.exit(9)
                         
                         else:
@@ -197,12 +197,13 @@ for key in allpoidatas:
                         for n in range(0,10):
                                 print "banned!!!!!!!!"
                          
-                         
+                        time.sleep(30)                        
+                        os.system("run_getpoiDatas2.bat")
                          
                         sys.exit(9)
                 pass	
                 continue
-db.close()     
+connection.close()     
 read_file.close()
 
 
