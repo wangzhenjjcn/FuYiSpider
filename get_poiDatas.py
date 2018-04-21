@@ -204,7 +204,7 @@ for key in allpoidatas:
                         sys.exit(9)
                 pass	
                 continue
-db.close()     
+connection.close()     
 read_file.close()
 
 
